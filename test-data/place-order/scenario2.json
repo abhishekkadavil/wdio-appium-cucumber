@@ -1,0 +1,28 @@
+{
+    "loginCredential": {
+        "username": "bob@example.com",
+        "password": "10203040"
+    },
+    "items": [
+        {
+            "name": "Sauce Labs Bike Light",
+            "color": "black",
+            "quantity": "1"
+        }
+    ],
+    "shippingAddress": {
+        "fullName": "Abhishek Kadavil",
+        "addressLane1": "Mandorly 112",
+        "addressLane2": "Entrance 1",
+        "city": "New York",
+        "state": "New York",
+        "zip": "10001",
+        "country": "United States"
+    },
+    "payment": {
+        "fullName": "Abhishek Kadavil",
+        "cardNumber": "325812657568789",
+        "cardExpDate": "1233",
+        "securityCode": "123"
+    }
+}
