@@ -1,6 +1,6 @@
 import { Then } from '@wdio/cucumber-framework';
-import cartPage from '../page-objects/cart-page';
+import { ScenarioContext } from '../utils/scenario-context.ts';
 
-Then('Proceed to checkout', async function () {
-  await cartPage.navigateToCheckoutPage();
+Then('Proceed to checkout', async function (this: ScenarioContext) {
+  await this.pages.cartPage.navigateToCheckoutPage();
 });

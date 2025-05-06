@@ -1,6 +1,6 @@
 import { Then } from '@wdio/cucumber-framework';
-import orderReviewPage from '../page-objects/order-review-page';
+import { ScenarioContext } from '../utils/scenario-context.ts';
 
-Then('Place order', async function () {
-  await orderReviewPage.completeOrderReview();
+Then('Place order', async function (this: ScenarioContext) {
+  await this.pages.orderReviewPage.completeOrderReview();
 });

@@ -1,9 +1,9 @@
 import { Before, After } from '@wdio/cucumber-framework';
-import { getAppId, safeCloseApp } from '../helpers/app-helper';
-import logger from '../utils/logger';
+import { getAppId, safeCloseApp } from '../helpers/app-helper.ts';
+import logger from '../utils/logger.ts';
 
-Before(async () => {
-  logger.info('Starting Scenario...');
+Before(async (scenario) => {
+  logger.info(`Running Scenario: ${scenario.pickle.name}`);
 
   const appId = getAppId();
   if (!appId) {

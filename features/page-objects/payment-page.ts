@@ -1,4 +1,6 @@
-class PaymentPage {
+import { wait } from '../helpers/wait-util.ts';
+
+export class PaymentPage {
   private fullName = $('~Full Name* input field');
   private cardNumber = $('~Card Number* input field');
   private cardExpDate = $('~Expiration Date* input field');
@@ -11,6 +13,12 @@ class PaymentPage {
     cardExpDate: string,
     securityCode: string
   ) {
+    await wait.forElementEnabled(this.fullName);
+    await wait.forElementEnabled(this.cardNumber);
+    await wait.forElementEnabled(this.cardExpDate);
+    await wait.forElementEnabled(this.securityCode);
+    await wait.forElementEnabled(this.reviewButton);
+
     const isPaymentPageDisplayed = await this.fullName
       .isDisplayed()
       .catch(() => false);
@@ -24,5 +32,3 @@ class PaymentPage {
     }
   }
 }
-
-export default new PaymentPage();

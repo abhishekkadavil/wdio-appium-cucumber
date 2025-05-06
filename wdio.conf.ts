@@ -1,8 +1,6 @@
 import * as path from 'path';
 import allure from '@wdio/allure-reporter';
-import * as fs from 'fs-extra';
 import * as dotenv from 'dotenv';
-import logger from './features/utils/logger';
 
 dotenv.config();
 
@@ -59,8 +57,8 @@ export const config: WebdriverIO.Config = {
   // https://saucelabs.com/platform/platform-configurator
   //
   capabilities: [
+    // capabilities for local Appium web tests on an Android Emulator
     // {
-    //   // capabilities for local Appium web tests on an Android Emulator
     //   platformName: 'Android',
     //   'appium:platformVersion': '14',
     //   'appium:deviceName': 'emulator-5554',
@@ -70,15 +68,20 @@ export const config: WebdriverIO.Config = {
     // },
     {
       platformName: 'Android',
-      'appium:platformVersion': '11.0',
-      'appium:deviceName': 'nightwatch-android-11',
-      'appium:app': path.join(
-        process.cwd(),
-        '/app/android/Android-MyDemoAppRN.1.3.0.build-244.apk'
-      ),
+      'appium:platformVersion': '14',
+      'appium:deviceName': 'Pixel 7a API VanillaIceCream',
+      'appium:app': path.join(process.cwd(), process.env.APP_PATH as string),
       'appium:automationName': 'UiAutomator2',
-      'appium:noReset': false,
+      'appium:noReset': false, // App data is cleared before the session starts. (App is "fresh installed" feeling.)
     },
+    // {
+    //   platformName: 'Android',
+    //   'appium:platformVersion': '11.0',
+    //   'appium:deviceName': 'nightwatch-android-11',
+    //   'appium:app': path.join(process.cwd(), process.env.APP_PATH as string),
+    //   'appium:automationName': 'UiAutomator2',
+    //   'appium:noReset': false,
+    // },
   ],
 
   //
@@ -128,7 +131,14 @@ export const config: WebdriverIO.Config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['appium'],
+  services: [
+    [
+      'appium',
+      {
+        logPath: './logs/appium-logs.log',
+      },
+    ],
+  ],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -167,7 +177,10 @@ export const config: WebdriverIO.Config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ['./features/step-definitions/**/*.ts'],
+    require: [
+      './features/step-definitions/**/*.ts',
+      './features/utils/scenario-context.ts',
+    ],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -186,7 +199,7 @@ export const config: WebdriverIO.Config = {
     strict: false,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
     tagExpression: '',
-    // <number> timeout for step definitions
+    // <number> timeout for step definitions`
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
@@ -244,26 +257,8 @@ export const config: WebdriverIO.Config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  before: async function (capabilities, specs) {
-    logger.info('before clearing the allure-report and allure-report folder');
-    const allureResultsPath = path.join(process.cwd(), 'allure-results/');
-    const allureReportPath = path.join(process.cwd(), 'allure-report/');
-    logger.info(allureResultsPath);
-    logger.info(allureReportPath);
-
-    try {
-      fs.ensureDirSync(allureResultsPath);
-      fs.ensureDirSync(allureReportPath);
-      fs.emptydir(allureResultsPath);
-      fs.emptyDirSync(allureReportPath);
-      logger.info(
-        'Cleared allure-results and allure-report directories before execution.'
-      );
-    } catch (error) {
-      logger.error('Error clearing allure directories: ' + error);
-    }
-    logger.info('after clearing the allure-report and allure-report folder');
-  },
+  // before: async function (capabilities, specs) {
+  // },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name

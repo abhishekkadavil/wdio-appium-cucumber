@@ -20,15 +20,24 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
+    "pretest": "node --loader ts-node/esm features/utils/pre-test.ts",
     "test": "wdio run ./wdio.conf.ts",
+    "preut": "node --loader ts-node/esm features/utils/pre-test.ts",
+    "ut": "wdio run wdio.conf.ts --cucumberOpts.tagExpression='@ProductDescValidation'",
+    "presmoke": "node --loader ts-node/esm features/utils/pre-test.ts",
     "smoke": "wdio run wdio.conf.ts --cucumberOpts.tagExpression='@pass'",
+    "preregression": "node --loader ts-node/esm features/utils/pre-test.ts",
     "regression": "wdio run wdio.conf.ts --cucumberOpts.tagExpression='@fail'",
+    "prespec": "node --loader ts-node/esm features/utils/pre-test.ts",
     "spec": "mkdir -p logs && wdio run ./wdio.conf.ts > logs/spec-output.log 2>&1",
     "spec-append": "mkdir -p logs && wdio run ./wdio.conf.ts >> logs/spec-output.log 2>&1",
-    "report": "allure generate allure-results --clean"
+    "report": "allure generate allure-results --clean",
+    "pretest:sharded": "node --loader ts-node/esm features/utils/pre-test.ts",
+    "test:sharded": "node --loader ts-node/esm run-sharded.ts > logs/spec-output.log 2>&1"
   },
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
+    "moment-timezone": "^0.5.48",
     "winston": "^3.17.0"
   }
 }

@@ -1,12 +1,13 @@
-// import { expect } from 'chai';
-import { InteractionHelper } from '../helpers/interaction-helper';
+import { InteractionHelper } from '../helpers/interaction-helper.ts';
+import { wait } from '../helpers/wait-util.ts';
 
-class OrderCompletePage {
+export class OrderCompletePage {
   private orderCompleteConfirmMessage = $(
     '//android.widget.TextView[@text="Checkout Complete"]'
   );
 
   async verifyOrderCompleteMessage(expectedMessage: string): Promise<string> {
+    await wait.forElementEnabled(this.orderCompleteConfirmMessage);
     await InteractionHelper.verifyElementText(
       this.orderCompleteConfirmMessage,
       expectedMessage
@@ -15,9 +16,8 @@ class OrderCompletePage {
   }
 
   async getOrderNumber(): Promise<string> {
+    await wait.forElementEnabled(this.orderCompleteConfirmMessage);
     const orderNumber = await this.orderCompleteConfirmMessage.getText();
     return orderNumber;
   }
 }
-
-export default new OrderCompletePage();
