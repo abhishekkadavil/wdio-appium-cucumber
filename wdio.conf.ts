@@ -58,18 +58,10 @@ export const config: WebdriverIO.Config = {
   //
   capabilities: [
     // capabilities for local Appium web tests on an Android Emulator
-    // {
-    //   platformName: 'Android',
-    //   'appium:platformVersion': '14',
-    //   'appium:deviceName': 'emulator-5554',
-    //   'appium:app': path.join(process.cwd(), process.env.APP_PATH as string),
-    //   'appium:automationName': 'UiAutomator2',
-    //   'appium:noReset': false, // App data is cleared before the session starts. (App is "fresh installed" feeling.)
-    // },
     {
       platformName: 'Android',
       'appium:platformVersion': '14',
-      'appium:deviceName': 'Pixel 7a API VanillaIceCream',
+      'appium:deviceName': 'emulator-5554',
       'appium:app': path.join(process.cwd(), process.env.APP_PATH as string),
       'appium:automationName': 'UiAutomator2',
       'appium:noReset': false, // App data is cleared before the session starts. (App is "fresh installed" feeling.)
@@ -168,7 +160,7 @@ export const config: WebdriverIO.Config = {
       {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
+        disableWebdriverScreenshotsReporting: true,
         useCucumberStepReporter: true,
       },
     ],
@@ -203,6 +195,7 @@ export const config: WebdriverIO.Config = {
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
+    retry: 1,
   },
 
   //

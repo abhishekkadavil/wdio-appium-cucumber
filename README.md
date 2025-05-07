@@ -83,17 +83,6 @@ Check if appium is installed globally
 - [Setup virtual device reference 1](https://www.youtube.com/watch?v=hKx_6VI53c8&list=PLQKDzuA2cCjrJeFQ2qUrS-5nN4LqYzoyq&index=4)
 - [Setup virtual device reference 2](https://www.youtube.com/watch?v=jQFRgOI8-3o&list=PL9ok7C7Yn9A99LiTcemmKmupBdNB38bbo&index=2)
 
-## Execution
-
-- Run `npm run smoke` to execute tests through [package.json](package.json).(instead of smoke we can define any value in package.json)
-- Run in parallel by executing `npm run test:sharded`
-- Generate undefined steps using `npx cucumber-js ./features/feature-files/place-order.feature`
-- Execute specif tags
-  - `npx wdio run wdio.conf.ts --cucumberOpts.tagExpression="@smoke"`
-  - `npx wdio run wdio.conf.ts --cucumberOpts.tagExpression="@smoke and @login"`
-  - `npx wdio run wdio.conf.ts --cucumberOpts.tagExpression="@smoke or @regression"`
-- write spec report to file or execute `npm run spec`, if you want to append the spec log use `wdio run ./wdio.conf.ts >> logs/spec-output.log 2>&1` or `spec-append`
-
 ## Why
 
 - Why WebdriverIO + Appium ? Why not something like Selenium + Appium
@@ -140,7 +129,7 @@ After the test execution we need to run `npm run report` to generate report. the
 
 For opening the allure report we need a live server. We can use either live server plugin in vscode(right lick on the index.html -> open with live server) or we can use `npx http-server ./allure-report`.
 
-Screenshots are added in `afterStep` of [wdio.conf.ts hooks](wdio.conf.ts). There is no particular reason for using [wdio.conf.ts hooks](wdio.conf.ts) instead of [cucumber hooks](features/step-definitions/hooks.ts).
+Screenshots are added in `afterStep` of [wdio.conf.ts hooks](wdio.conf.ts). There is no particular reason for using [wdio.conf.ts hooks](wdio.conf.ts) instead of [cucumber hooks](features/step-definitions/hooks.ts). We can also enable allure screenshot in reporters -> disableWebdriverScreenshotsReporting section of [wdio.conf.ts hooks](wdio.conf.ts). Also the for every assertion we are taking a screenshot this logic is present in the [interaction-helper.ts](features/helpers/interaction-helper.ts).
 
 We can test info like below - [Reference](https://webdriver.io/docs/allure-reporter#supported-allure-api).
 
@@ -183,6 +172,20 @@ dotenv.config();
 After that we use [env.ts](features/utils/env.ts) to load env data and use everywhere. usage eg: [wait-util.ts](features/helpers/wait-util.ts)
 
 ## Execution flow
+
+### Execution
+
+- Run `npm run smoke` to execute tests through [package.json](package.json).(instead of smoke we can define any value in package.json)
+- Run in parallel by executing `npm run test:sharded`
+- Generate undefined steps using `npx cucumber-js ./features/feature-files/place-order.feature`
+- Execute specif tags
+  - `npx wdio run wdio.conf.ts --cucumberOpts.tagExpression="@smoke"`
+  - `npx wdio run wdio.conf.ts --cucumberOpts.tagExpression="@smoke and @login"`
+  - `npx wdio run wdio.conf.ts --cucumberOpts.tagExpression="@smoke or @regression"`
+- write spec report to file or execute `npm run spec`, if you want to append the spec log use `wdio run ./wdio.conf.ts >> logs/spec-output.log 2>&1` or `spec-append`
+- There are three main execution WDIO execution files are there:
+  - [wdio.conf.ts](wdio.conf.ts)
+  - [run-sharded.ts](run-sharded.ts) ([wdio.base.conf.ts](wdio.base.conf.ts) is part of this file)
 
 ### Pre test
 
@@ -236,7 +239,8 @@ const isIOS = browser.capabilities.platformName?.toLowerCase() === 'ios';
 
 ### Retry
 
-Handles in specFileRetries in [wdio.conf.ts](wdio.conf.ts)
+- Spec File Level Retry: `specFileRetries` in [wdio.conf.ts](wdio.conf.ts)
+- Test/Scenario Level Retry: `retry` in `cucumberOpts` of [wdio.conf.ts](wdio.conf.ts)
 
 ### Parallel execution
 
