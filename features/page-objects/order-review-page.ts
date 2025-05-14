@@ -1,10 +1,10 @@
-import { wait } from '../helpers/wait-util.ts';
+import { InteractionHelper } from '../helpers/interaction-helper.ts';
 
 export class OrderReviewPage {
+  constructor(private interactionHelper: InteractionHelper) {}
   private placeOrderButton = $('~Place Order button');
 
   async completeOrderReview() {
-    await wait.forElementEnabled(this.placeOrderButton);
-    await this.placeOrderButton.click();
+    await this.interactionHelper.clickElement(this.placeOrderButton);
   }
 }

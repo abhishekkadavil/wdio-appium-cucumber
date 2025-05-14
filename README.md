@@ -95,6 +95,11 @@ Check if appium is installed globally
 
 ## How
 
+## Execute test
+
+- Start simulator from android studio
+- Run which ever configuration you want from [package.json](package.json) eg: `npm run spec`
+
 ### Test data
 
 Test data is managed through json files. Below step is used to inject test data into the test.
@@ -162,7 +167,7 @@ Apart from the manual log, The framework will generate appium log, and spec repo
 
 ## Configuration
 
-Configuration is done though [.env](.env) file. The data is initalised in staring of the execution in [wdio.conf.ts](wdio.conf.ts) by using below command
+Configuration is done though [.env](.env) file. The data is initialized in staring of the execution in [wdio.conf.ts](wdio.conf.ts) by using below command
 
 ```ts
 import * as dotenv from 'dotenv';

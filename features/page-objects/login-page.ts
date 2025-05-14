@@ -1,23 +1,21 @@
-import { wait } from '../helpers/wait-util.ts';
+import { InteractionHelper } from '../helpers/interaction-helper.ts';
 
 export class LoginPage {
+  constructor(private interactionHelper: InteractionHelper) {}
+
   private usernameField = $('~Username input field');
   private passwordField = $('~Password input field');
   private loginButton = $('~Login button');
 
   async login(username: string, password: string) {
-    await wait.forElementEnabled(this.usernameField);
-    await wait.forElementEnabled(this.passwordField);
-    await wait.forElementEnabled(this.loginButton);
-
     const isLoginScreenDisplayed = await this.usernameField
       .isDisplayed()
       .catch(() => false);
 
     if (isLoginScreenDisplayed) {
-      await this.usernameField.setValue(username);
-      await this.passwordField.setValue(password);
-      await this.loginButton.click();
+      await this.interactionHelper.typeElement(this.usernameField, username);
+      await this.interactionHelper.typeElement(this.passwordField, password);
+      await this.interactionHelper.clickElement(this.loginButton);
     } else {
       console.log('Already logged in. Skipping login.');
     }

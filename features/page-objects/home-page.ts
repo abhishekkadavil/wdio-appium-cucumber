@@ -1,6 +1,7 @@
-import { wait } from '../helpers/wait-util.ts';
+import { InteractionHelper } from '../helpers/interaction-helper.ts';
 
 export class HomePage {
+  constructor(private interactionHelper: InteractionHelper) {}
   private itemLocator(itemName: string) {
     return $(
       `//android.widget.TextView[@content-desc="store item text" and @text="${itemName}"]`
@@ -8,9 +9,6 @@ export class HomePage {
   }
 
   async selectProduct(itemName: string) {
-    const itemElement = this.itemLocator(itemName);
-    await wait.forExist(itemElement);
-    await wait.forElementEnabled(itemElement);
-    await itemElement.click();
+    this.interactionHelper.clickElement(this.itemLocator(itemName));
   }
 }

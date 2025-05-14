@@ -1,12 +1,12 @@
-import { wait } from '../helpers/wait-util.ts';
+import { InteractionHelper } from '../helpers/interaction-helper.ts';
 
 export class CartPage {
+  constructor(private interactionHelper: InteractionHelper) {}
   private proceedToCheckoutButton = $(
     `//android.widget.TextView[@text="Proceed To Checkout"]`
   );
 
   async navigateToCheckoutPage() {
-    await wait.forElementEnabled(this.proceedToCheckoutButton);
-    await this.proceedToCheckoutButton.click();
+    await this.interactionHelper.clickElement(this.proceedToCheckoutButton);
   }
 }

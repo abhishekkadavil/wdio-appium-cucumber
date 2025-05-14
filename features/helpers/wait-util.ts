@@ -1,10 +1,14 @@
 import { ChainablePromiseElement } from 'webdriverio';
+import { config as wdioConfig } from '../../wdio.conf.ts';
 import { EnvConfig } from '../utils/env.ts';
+
+const DEFAULT_TIMEOUT =
+  Number(EnvConfig.ELEMENT_WAIT_TIMEOUT) || Number(wdioConfig.waitforTimeout);
 
 // Waits until the element is displayed.
 export async function waitForElementDisplayed(
   elementPromise: ChainablePromiseElement,
-  timeout: number = EnvConfig.ELEMENT_WAIT_TIMEOUT,
+  timeout: number = DEFAULT_TIMEOUT,
   timeoutMsg?: string
 ): Promise<void> {
   const element = await elementPromise;
@@ -20,7 +24,7 @@ export async function waitForElementDisplayed(
 // Waits until the element is not displayed (e.g., disappears).
 export async function waitForElementHidden(
   elementPromise: ChainablePromiseElement,
-  timeout: number = Number(EnvConfig.ELEMENT_WAIT_TIMEOUT),
+  timeout: number = Number(DEFAULT_TIMEOUT),
   timeoutMsg?: string
 ): Promise<void> {
   const element = await elementPromise;
@@ -37,7 +41,7 @@ export async function waitForElementHidden(
 // Waits until the element exists in the DOM.
 export async function waitForElementExist(
   elementPromise: ChainablePromiseElement,
-  timeout: number = Number(EnvConfig.ELEMENT_WAIT_TIMEOUT),
+  timeout: number = Number(DEFAULT_TIMEOUT),
   timeoutMsg?: string
 ): Promise<void> {
   const element = await elementPromise;
@@ -53,7 +57,7 @@ export async function waitForElementExist(
 // Waits until the element no longer exists in the DOM.
 export async function waitForElementNotExist(
   elementPromise: ChainablePromiseElement,
-  timeout: number = Number(EnvConfig.ELEMENT_WAIT_TIMEOUT),
+  timeout: number = Number(DEFAULT_TIMEOUT),
   timeoutMsg?: string
 ): Promise<void> {
   const element = await elementPromise;
@@ -70,7 +74,7 @@ export async function waitForElementNotExist(
 // Waits until the element becomes enabled (intractable).
 export async function waitForElementEnabled(
   elementPromise: ChainablePromiseElement,
-  timeout: number = Number(EnvConfig.ELEMENT_WAIT_TIMEOUT),
+  timeout: number = Number(DEFAULT_TIMEOUT),
   timeoutMsg?: string
 ): Promise<void> {
   const element = await elementPromise;

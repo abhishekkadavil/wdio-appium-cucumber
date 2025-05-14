@@ -1,6 +1,7 @@
-import { wait } from '../helpers/wait-util.ts';
+import { InteractionHelper } from '../helpers/interaction-helper.ts';
 
 export class PaymentPage {
+  constructor(private interactionHelper: InteractionHelper) {}
   private fullName = $('~Full Name* input field');
   private cardNumber = $('~Card Number* input field');
   private cardExpDate = $('~Expiration Date* input field');
@@ -13,22 +14,16 @@ export class PaymentPage {
     cardExpDate: string,
     securityCode: string
   ) {
-    await wait.forElementEnabled(this.fullName);
-    await wait.forElementEnabled(this.cardNumber);
-    await wait.forElementEnabled(this.cardExpDate);
-    await wait.forElementEnabled(this.securityCode);
-    await wait.forElementEnabled(this.reviewButton);
-
     const isPaymentPageDisplayed = await this.fullName
       .isDisplayed()
       .catch(() => false);
     if (isPaymentPageDisplayed) {
-      await this.fullName.setValue(fullName);
-      await this.cardNumber.setValue(cardNumber);
-      await this.cardExpDate.setValue(cardExpDate);
-      await this.securityCode.setValue(securityCode);
-      await this.reviewButton.click();
-      await this.reviewButton.click();
+      await this.interactionHelper.typeElement(this.fullName, fullName);
+      await this.interactionHelper.typeElement(this.cardNumber, cardNumber);
+      await this.interactionHelper.typeElement(this.cardExpDate, cardExpDate);
+      await this.interactionHelper.typeElement(this.securityCode, securityCode);
+      await this.interactionHelper.clickElement(this.reviewButton);
+      await this.interactionHelper.clickElement(this.reviewButton);
     }
   }
 }
