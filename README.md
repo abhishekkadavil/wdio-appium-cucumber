@@ -50,10 +50,14 @@ This is a boilerplate for Cucumber Appium webdriverIO for mobile APP automation
   - `npm install --save-dev chai`
   - `npm install --save-dev @types/chai`
  
+#### Other packages to install
+
+- `npm install --save-dev @wdio/types` - To use `$` in `$('~email')`
+ 
 ## High level flow
 **Appium - Local Flow - Local Flow**  
-    Test Script (e.g., written in Python/Java/JS)  
-        ↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Test Script (e.g., written in Python/Java/JS)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
     Appium Client Library  
         ↓  
     Appium Server (acts as a translator)  
@@ -106,11 +110,6 @@ This is a boilerplate for Cucumber Appium webdriverIO for mobile APP automation
     Launches Your App on a Cloud Device  
      ↓  
     Returns UI Hierarchy to Inspector  
-
-
-#### Other packages to install
-
-- `npm install --save-dev @wdio/types` - To use `$` in `$('~email')`
 
 ### Pre Check
 
