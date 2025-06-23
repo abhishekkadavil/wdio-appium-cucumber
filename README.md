@@ -63,50 +63,49 @@ This is a boilerplate for Cucumber Appium webdriverIO for mobile APP automation
     Mobile Emulator / Real Device  
 
 **Appium - Cloud-Based Flow**  
-    Test Script (Python / Java / JS etc.)
-        ↓
-    Appium Client (e.g., Appium Python or Java client library)
-        ↓
-    Remote Appium Server (e.g., LambdaTest @ https://mobile-hub.lambdatest.com/wd/hub)
-        ↓
-    LambdaTest Cloud Device (real/virtual)
-        ↓
-    App Under Test launches
-        ↓
-    Test actions performed (click, input, assert, etc.)
-        ↓
-    Results returned to test script
+    Test Script (Python / Java / JS etc.)  
+        ↓  
+    Appium Client (e.g., Appium Python or Java client library)  
+        ↓  
+    Remote Appium Server (e.g., LambdaTest @ https://mobile-hub.lambdatest.com/wd/hub)  
+        ↓  
+    LambdaTest Cloud Device (real/virtual)  
+        ↓  
+    App Under Test launches  
+        ↓  
+    Test actions performed (click, input, assert, etc.)  
+        ↓  
+    Results returned to test script  
 
+**Appium Inspector - Local Flow**  
+    Appium Inspector (Desktop App)  
+         ↓  
+    Desired Capabilities (You input device & app info)  
+         ↓  
+    Appium Server (Local or Remote)  
+         ↓  
+    Mobile Emulator / Real Device  
+         ↓  
+    App Under Test (AUT) launches  
+         ↓  
+    Inspector fetches & displays UI Hierarchy  
+         ↓  
+    You interact with the UI visually  
+         ↓  
+    Inspector shows attributes (IDs, XPaths, etc.)  
+         ↓  
+    You copy locators and use in your test scripts  
 
-**Appium Inspector - Local Flow**
-    Appium Inspector (Desktop App)
-         ↓
-    Desired Capabilities (You input device & app info)
-         ↓
-    Appium Server (Local or Remote)
-         ↓
-    Mobile Emulator / Real Device
-         ↓
-    App Under Test (AUT) launches
-         ↓
-    Inspector fetches & displays UI Hierarchy
-         ↓
-    You interact with the UI visually
-         ↓
-    Inspector shows attributes (IDs, XPaths, etc.)
-         ↓
-    You copy locators and use in your test scripts
-
-**Appium Inspector - Cloud-Based Flow**
-    Appium Inspector
-     ↓
-    Cloud Grid Server (e.g., https://mobile-hub.lambdatest.com/wd/hub)
-     ↓
-    LambdaTest's Device Farm
-     ↓
-    Launches Your App on a Cloud Device
-     ↓
-    Returns UI Hierarchy to Inspector
+**Appium Inspector - Cloud-Based Flow**  
+    Appium Inspector  
+     ↓  
+    Cloud Grid Server (e.g., https://mobile-hub.lambdatest.com/wd/hub)  
+     ↓  
+    LambdaTest's Device Farm  
+     ↓  
+    Launches Your App on a Cloud Device  
+     ↓  
+    Returns UI Hierarchy to Inspector  
 
 
 #### Other packages to install
