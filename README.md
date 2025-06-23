@@ -51,18 +51,18 @@ This is a boilerplate for Cucumber Appium webdriverIO for mobile APP automation
   - `npm install --save-dev @types/chai`
  
 ## High level flow
-**Appium - Local Flow - Local Flow**
-    Test Script (e.g., written in Python/Java/JS)
-        ↓
-    Appium Client Library
-        ↓
-    Appium Server (acts as a translator)
-        ↓
-    Mobile Automation Framework(Android → UIAutomator2 / Espresso, iOS → XCUITest)
-        ↓
-    Mobile Emulator / Real Device
+**Appium - Local Flow - Local Flow**  
+    Test Script (e.g., written in Python/Java/JS)  
+        ↓  
+    Appium Client Library  
+        ↓  
+    Appium Server (acts as a translator)  
+        ↓  
+    Mobile Automation Framework(Android → UIAutomator2 / Espresso, iOS → XCUITest)  
+        ↓  
+    Mobile Emulator / Real Device  
 
-**Appium - Cloud-Based Flow**
+**Appium - Cloud-Based Flow**  
     Test Script (Python / Java / JS etc.)
         ↓
     Appium Client (e.g., Appium Python or Java client library)
