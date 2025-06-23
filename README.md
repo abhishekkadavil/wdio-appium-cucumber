@@ -58,58 +58,58 @@ This is a boilerplate for Cucumber Appium webdriverIO for mobile APP automation
 **Appium - Local Flow - Local Flow**  
 &nbsp;&nbsp;&nbsp;&nbsp;Test Script (e.g., written in Python/Java/JS)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
-    Appium Client Library  
-        ↓  
-    Appium Server (acts as a translator)  
-        ↓  
-    Mobile Automation Framework(Android → UIAutomator2 / Espresso, iOS → XCUITest)  
-        ↓  
-    Mobile Emulator / Real Device  
+&nbsp;&nbsp;&nbsp;&nbsp;Appium Client Library  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Appium Server (acts as a translator)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Mobile Automation Framework(Android → UIAutomator2 / Espresso, iOS → XCUITest)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Mobile Emulator / Real Device  
 
 **Appium - Cloud-Based Flow**  
-    Test Script (Python / Java / JS etc.)  
-        ↓  
-    Appium Client (e.g., Appium Python or Java client library)  
-        ↓  
-    Remote Appium Server (e.g., LambdaTest @ https://mobile-hub.lambdatest.com/wd/hub)  
-        ↓  
-    LambdaTest Cloud Device (real/virtual)  
-        ↓  
-    App Under Test launches  
-        ↓  
-    Test actions performed (click, input, assert, etc.)  
-        ↓  
-    Results returned to test script  
+&nbsp;&nbsp;&nbsp;&nbsp;Test Script (Python / Java / JS etc.)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Appium Client (e.g., Appium Python or Java client library)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Remote Appium Server (e.g., LambdaTest @ https://mobile-hub.lambdatest.com/wd/hub)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;LambdaTest Cloud Device (real/virtual)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;App Under Test launches  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Test actions performed (click, input, assert, etc.)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Results returned to test script  
 
 **Appium Inspector - Local Flow**  
-    Appium Inspector (Desktop App)  
-         ↓  
-    Desired Capabilities (You input device & app info)  
-         ↓  
-    Appium Server (Local or Remote)  
-         ↓  
-    Mobile Emulator / Real Device  
-         ↓  
-    App Under Test (AUT) launches  
-         ↓  
-    Inspector fetches & displays UI Hierarchy  
-         ↓  
-    You interact with the UI visually  
-         ↓  
-    Inspector shows attributes (IDs, XPaths, etc.)  
-         ↓  
-    You copy locators and use in your test scripts  
+&nbsp;&nbsp;&nbsp;&nbsp;Appium Inspector (Desktop App)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Desired Capabilities (You input device & app info)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Appium Server (Local or Remote)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Mobile Emulator / Real Device  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;App Under Test (AUT) launches  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Inspector fetches & displays UI Hierarchy  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;You interact with the UI visually  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Inspector shows attributes (IDs, XPaths, etc.)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;You copy locators and use in your test scripts  
 
 **Appium Inspector - Cloud-Based Flow**  
-    Appium Inspector  
-     ↓  
-    Cloud Grid Server (e.g., https://mobile-hub.lambdatest.com/wd/hub)  
-     ↓  
-    LambdaTest's Device Farm  
-     ↓  
-    Launches Your App on a Cloud Device  
-     ↓  
-    Returns UI Hierarchy to Inspector  
+&nbsp;&nbsp;&nbsp;&nbsp;Appium Inspector  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Cloud Grid Server (e.g., https://mobile-hub.lambdatest.com/wd/hub)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;LambdaTest's Device Farm  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Launches Your App on a Cloud Device  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+&nbsp;&nbsp;&nbsp;&nbsp;Returns UI Hierarchy to Inspector  
 
 ### Pre Check
 
