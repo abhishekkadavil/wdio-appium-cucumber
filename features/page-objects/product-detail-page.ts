@@ -35,7 +35,7 @@ export class ProductDetailsPage {
   }
 
   async navigateToCartPage() {
-    await await this.interactionHelper.clickElement(this.cartIcon);
+    await this.interactionHelper.clickElement(this.cartIcon);
   }
 
   async verifyProductDesc(expectedProductDesc: string) {
